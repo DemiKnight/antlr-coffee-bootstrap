@@ -5,14 +5,12 @@ MAINTAINER alex@alexknight.co.uk
 RUN apt-get update
 RUN apt-get install -y git
 
-# Get coffee \
+# Get coffee
 RUN mkdir /home/code
-RUN cd /home/code \
-    git clone "https://github.com/ryanjpc/CoffeeRelease.git" . \
-    chmod +u coffee.out
+RUN cd /home/code
+
+RUN git clone "https://github.com/ryanjpc/CoffeeRelease.git" /home/code
+
+RUN chmod u+x /home/code/coffee.out
 
 WORKDIR /home/code
-#
-#RUN /home/code/coffee.out
-
-#CMD ["./coffee.out"]
