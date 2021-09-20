@@ -13,10 +13,10 @@ ENV PATH=/home/code/bin/:$PATH
 
 WORKDIR /home/code
 
-COPY ./src .
+COPY ./src /home/code
 
 # Might need to be changed if we can't provide the file when executing
-ENTRYPOINT /home/code/bin/coffee.out
+#ENTRYPOINT /home/code/bin/coffee.out
 
-CMD ["test.coffee"]
+CMD ["/home/code/bin/coffee.out", "/home/code/test.coffee"]
 #CMD ["coffee.out", "test.coffee"]
