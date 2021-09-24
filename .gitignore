@@ -1,1 +1,7 @@
 .idea/
+*.java
+*.interp
+*.class
+*.tokens
+target/
+.bsp/
