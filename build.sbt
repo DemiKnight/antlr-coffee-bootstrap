@@ -1,22 +1,22 @@
-ThisBuild / scalaVersion := "3.0.2"
-ThisBuild / name := "Coffee-Antlr Bootstrap"
+ThisBuild / scalaVersion := "2.12.13"
 ThisBuild / version := "0.1"
-ThisBuild / libraryDependencies += {
-  "org.antlr" % "antlr4-runtime" % "4.9.2"
-}
-
-
-val mainAntlrFile = "Coffee.g4"
-
-lazy val runAntlr = taskKey[Unit](s"Run antlr for $mainAntlrFile")
-
-
-lazy val antlr = (project in file("antlr"))
-  .settings(
-    name := "Antlr Definitions",
+ThisBuild / developers := List(
+  Developer(
+    id = "DemiKnight",
+    name = "Alex Knight",
+    email = "alex@alexknight.co.uk",
+    url = url("https://github.com/DemiKnight")
   )
+)
+ThisBuild / libraryDependencies ++= Seq(
+  "org.antlr" % "antlr4" % "4.9.2"
+)
 
-lazy val coffeeLang = (project in file("coffee"))
+lazy val core = (project in file ("."))
+  .enablePlugins(Antlr4Plugin)
   .settings(
-    name := "Coffee Lang source"
-  )
+  name := "Coffee-Antlr Bootstrap",
+//  sourceDirectories := Seq(
+//    "antlr"
+//  )
+)
